@@ -11,8 +11,11 @@ function redirectToCheckin() {
         window.location.href = 'checkin.html'; // Redirect after the fade out
     }, 500); // Time matches the CSS transition duration
 
-    // Ensure fade-in effect when the page loads
-    document.addEventListener("DOMContentLoaded", function() {
-        document.body.style.opacity = 1;
-    });
+    document.body.style.opacity = 1;
+
 }
+
+// Sicherstellen, dass der Fade-In-Effekt beim Laden der Seite funktioniert
+document.addEventListener("DOMContentLoaded", function() {
+    document.body.style.opacity = 1; // Fade-In beim ersten Laden
+});
