@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(90deg, #FA1C41, #9966ff); /* Updated background gradient */
+            color: white;
+            transition: background-color 1.5s ease, opacity 1.5s ease; /* Smooth background transition */
+            opacity: 0; /* Start with transparent body */
+        }
+        .header {
+            padding: 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 4rem;
+            color: white;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        .btn-custom {
+            background-color: #003366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: none;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Reset Page</h1>
+</div>
+
+<div class="button-container">
+    <button class="btn btn-custom" onclick="resetFunction()">Reset</button>
+</div>
+
+<!-- JavaScript for fade-in effect -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.body.style.opacity = 1; // Fade in when the page loads
+    });
+
+    // Function to send reset request to an example endpoint
+    function resetFunction() {
+        const endpoint = 'https://example.com/api/reset'; // Replace with your actual endpoint
+
+        // Send a POST request
+        fetch(endpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ reset: true }), // Send the reset status in JSON format
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Success:', data); // Handle success
+                alert(`Response received: ${data.message || 'Success'}`);
+            })
+            .catch((error) => {
+                console.error('Error:', error); // Handle error
+                alert('There was an error. Please try again later.');
+            });
+    }
+</script>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
