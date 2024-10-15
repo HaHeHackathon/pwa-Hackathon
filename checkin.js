@@ -12,7 +12,7 @@ function sendResponse(answer) {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ answer: answer }), // Send the answer in JSON format
+        body: JSON.stringify({ answer: answer, station: localStorage.getItem('selectedStation') }), // Send the answer in JSON format
     })
         .then(response => {
             if (!response.ok) {

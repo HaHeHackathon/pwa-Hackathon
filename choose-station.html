@@ -97,6 +97,31 @@
         console.log(`Selected Station: ${selectedStation}`);
         // Additional logic can be implemented here based on the selected station
     }
+
+    // Handle the button click
+    document.getElementById('submitBtn').onclick = function() {
+        const selectedStation = document.getElementById('stationSelect').value;
+        if (selectedStation) {
+            // Save the selected station in localStorage
+            localStorage.setItem('selectedStation', selectedStation);
+
+            redirectToCheckin()
+
+        } else {
+            alert('Please select a station.');
+        }
+    };
+
+    function redirectToCheckin() {
+        document.body.style.opacity = 0; // Start fading out
+        setTimeout(function() {
+            window.location.href = 'checkin.html'; // Redirect after the fade out
+        }, 500); // Time matches the CSS transition duration
+
+        document.body.style.opacity = 1;
+
+    }
+
 </script>
 
 <script src="checkin.js"></script>

@@ -5,10 +5,10 @@ if('serviceWorker' in navigator) {
         });
 }
 
-function redirectToCheckin() {
+function redirectToStations() {
     document.body.style.opacity = 0; // Start fading out
     setTimeout(function() {
-        window.location.href = 'checkin.html'; // Redirect after the fade out
+        window.location.href = 'choose-station.html'; // Redirect after the fade out
     }, 500); // Time matches the CSS transition duration
 
     document.body.style.opacity = 1;
