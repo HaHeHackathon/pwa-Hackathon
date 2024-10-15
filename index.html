@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moin App</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="index.js"></script>
+  <style>
+    body {
+      background-color: #e60012;
+      color: white;
+      transition: background-color 0.5s ease, opacity 0.5s ease; /* Smooth background transition */
+      opacity: 1; /* Default opacity */
+    }
+
+    .header {
+      background-color: #8c003f;
+      padding: 0;
+      text-align: center;
+      position: relative;
+    }
+    .header h1 {
+      font-size: 5rem;
+      margin: 0;
+      padding-bottom: 0;
+      color: white;
+      position: relative;
+      z-index: 1;
+      margin-bottom: -18px;
+    }
+    .search-container {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      z-index: 0;
+    }
+    .header input {
+      border-radius: 50px;
+      padding: 10px 20px;
+      border: none;
+      width: 100%;
+      max-width: 600px;
+      z-index: 0;
+    }
+
+    .location-buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center; /* Center Home and Work buttons */
+      align-items: center;
+      position: relative;
+    }
+    /* Space between Home and Work buttons */
+    .location-buttons .btn {
+      margin-right: 10px; /* Space between Home and Work */
+    }
+
+    /* Apply purple color to all buttons */
+    .btn-purple {
+      background-color: #9966ff;
+      color: white;
+    }
+    /* Adjust button sizes */
+    .btn-purple {
+      border-radius: 30px;
+      padding: 6px 24px;
+      margin: 0 10px;
+      font-size: 1rem;
+    }
+    /* Circular "+" button aligned to the right */
+    /* Ensure the Plus button is on the right */
+    .btn-plus {
+      padding: 8px 16px;
+      font-size: 1.5rem;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: auto; /* Pushes the plus button to the right */
+    }
+    .frequent-list {
+      background-color: white;
+      padding: 20px;
+      color: black;
+      border-radius: 15px;
+      margin-top: 20px;
+    }
+    .frequent-list .location {
+      margin: 10px 0;
+    }
+    /* Check-in button styling: fixed position, similar to tickets */
+    .checkin-button {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      z-index: 1000;
+    }
+    .checkin-button button {
+      background-color: #003366;
+      color: white;
+      border-radius: 50px;
+      padding: 10px 20px;
+      border: none;
+    }
+    /* Bottom menu styling */
+    .bottom-menu {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #fff;
+      padding: 10px;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .bottom-menu button {
+      background-color: #003366;
+      color: white;
+      border-radius: 50px;
+      padding: 10px 20px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Moin</h1>
+  <div class="search-container">
+    <input type="text" placeholder="Where do you want to go?" class="form-control">
+  </div>
+
+  <div class="location-buttons">
+    <button class="btn btn-purple">Home</button>
+    <button class="btn btn-purple">Work</button>
+    <button class="btn btn-purple btn-plus">+</button>
+  </div>
+
+</div>
+
+<div class="container frequent-list">
+  <h3>Frequently used</h3>
+  <div class="location">
+    <i class="fas fa-map-marker-alt"></i> Eiffestraße 78, Hamburg
+  </div>
+  <div class="location">
+    <i class="fas fa-subway"></i> Garstedt, Garstedt
+  </div>
+</div>
+
+<!-- Check-in button -->
+<div class="checkin-button" onclick="redirectToCheckin()">
+  <button>Check-in</button>
+</div>
+
+<!-- Bottom menu -->
+<div class="bottom-menu">
+  <!-- Tickets button -->
+  <button>Tickets</button>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.com/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Font Awesome Icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>
