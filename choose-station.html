@@ -54,7 +54,7 @@
 </div>
 
 <div class="button-container">
-    <button class="btn-custom" id="submitBtn">done</button>
+    <button class="btn-custom" onclick="redirectToCheckin()">done</button>
 </div>
 
 <!-- JavaScript for fade-in effect -->
@@ -102,27 +102,22 @@
         // Additional logic can be implemented here based on the selected station
     }
 
-    // Handle the button click
-    document.getElementById('submitBtn').onclick = function() {
-        const selectedStation = document.getElementById('stationSelect').value;
+    function redirectToCheckin() {
+        const selectedStation = document.getElementById('stations').value;
         if (selectedStation) {
             // Save the selected station in localStorage
             localStorage.setItem('selectedStation', selectedStation);
 
-            redirectToCheckin()
+            document.body.style.opacity = 0; // Start fading out
+            setTimeout(function() {
+                window.location.href = 'checkin.html'; // Redirect after the fade out
+            }, 500); // Time matches the CSS transition duration
+
+            document.body.style.opacity = 1;
 
         } else {
             alert('Please select a station.');
         }
-    };
-
-    function redirectToCheckin() {
-        document.body.style.opacity = 0; // Start fading out
-        setTimeout(function() {
-            window.location.href = 'checkin.html'; // Redirect after the fade out
-        }, 500); // Time matches the CSS transition duration
-
-        document.body.style.opacity = 1;
 
     }
 
